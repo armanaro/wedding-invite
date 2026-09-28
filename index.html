@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#06493b" />
+    <meta name="description" content="The premium Nikah invitation of Arman Mia and Muskan Khatun." />
+    <title>Bhaijaan &amp; Bhabhi | Nikah Invitation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/responsive.css" />
+  </head>
+  <body>
+    <div class="page-noise" aria-hidden="true"></div>
+
+    <div class="loading-screen" id="loading" role="status" aria-live="polite">
+      <img id="loading-ornament" class="asset loading-ornament-asset" src="assets/images/loading-ornament.png" alt="Antique gold Islamic loading ornament" width="180" height="180" />
+      <div class="loading-fallback-ornament" aria-hidden="true">✦</div>
+      <p>Preparing your invitation...</p>
+    </div>
+
+    <section class="intro-screen" id="intro-screen" aria-labelledby="intro-title">
+      <img id="intro-sky" class="asset intro-sky-asset" src="assets/images/psp.png" alt="Soft daylight sky above the wedding palace" width="1600" height="1000" fetchpriority="high" />
+      <img id="intro-palace" class="asset intro-palace-asset" src="assets/images/" alt="Royal Islamic palace entrance" width="1200" height="720" fetchpriority="high" />
+      <img id="intro-foreground" class="asset intro-foreground-asset" src="assets/images/welcome-foreground.png" alt="Elegant wedding foliage in the foreground" width="1440" height="450" fetchpriority="high" />
+      <div class="intro-fallback-scene" aria-hidden="true"><i></i><i></i><i></i><b></b></div>
+      <div class="intro-content">
+        <p class="intro-kicker">An intimate celebration of love and faith</p>
+        <p class="intro-invitation">You Are Cordially Invited</p>
+        <div class="intro-divider" aria-hidden="true"><i></i><span>✦</span><i></i></div>
+        <h1 id="intro-title">Bhaijaan <span>&amp;</span> Bhabhi</h1>
+        <p class="intro-date"> April 2027 ·  Marriage Hall</p>
+        <button class="intro-open-button" id="intro-open-button" type="button" aria-label="Open your wedding invitation">Open Your Invitation <span aria-hidden="true">→</span></button>
+      </div>
+    </section>
+
+    <aside class="fixed-actions" aria-label="Invitation controls">
+      <button class="control-button music-button" id="music-button" type="button" aria-label="Background music unavailable until a nasheed is added" aria-pressed="false">
+        <img id="music-icon" class="asset music-icon-asset" src="assets/icons/music-icon.svg" alt="Music note icon" width="22" height="22" />
+        <span class="sr-only">Play or pause background music</span>
+      </button>
+      <button class="control-button menu-button" id="menu-button" type="button" aria-label="Open invitation menu" aria-expanded="false" aria-controls="invitation-menu">
+        <img id="menu-icon" class="asset menu-icon-asset" src="assets/icons/menu-icon.svg" alt="Menu icon" width="22" height="22" />
+        <span class="sr-only">Open invitation menu</span>
+      </button>
+    </aside>
+
+    <nav class="menu-overlay" id="invitation-menu" aria-label="Invitation navigation" aria-hidden="true">
+      <div class="menu-panel" role="dialog" aria-modal="true" aria-label="Invitation sections">
+        <button class="menu-close" id="menu-close" type="button" aria-label="Close invitation menu">×</button>
+        <p class="kicker">A moment to remember</p>
+        <a href="#welcome">Welcome</a><a href="#couple">Couple</a><a href="#surah">Surah</a><a href="#scratch">Surprise</a><a href="#events">Events</a><a href="#countdown">Countdown</a><a href="#hosts">Hosts</a><a href="#blessing">Blessing</a><a href="#names">Names</a>
+      </div>
+    </nav>
+
+    <main>
+      <section class="scene welcome-scene" id="welcome" aria-labelledby="welcome-title">
+        <img id="welcome-sky" class="asset welcome-sky-asset scene-backdrop" src="assets/images/welcome-sky.webp" alt="Soft daylight sky above a royal Islamic palace" width="1600" height="1000" fetchpriority="high" />
+        <img id="welcome-palace" class="asset welcome-palace-asset" src="assets/images/welcome-palace.png" alt="Royal emerald and cream Islamic palace illustration" width="1200" height="720" fetchpriority="high" />
+        <img id="welcome-foreground" class="asset welcome-foreground-asset" src="assets/images/welcome-foreground.png" alt="Elegant foreground foliage and floral decoration" width="1440" height="450" fetchpriority="high" />
+        <div class="welcome-fallback-palace" aria-hidden="true"><i></i><i></i><i></i><b></b></div>
+        <div class="scene-copy welcome-copy is-reveal">
+          <p class="arabic welcome-bismillah" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+          <p class="kicker">With the blessings of Allah</p><p class="welcome-invitation">You are cordially invited to celebrate</p>
+          <h1 id="welcome-title"><span>Bhaijaan</span><b>&amp;</b><span>Bhabhi</span></h1>
+          <button class="gold-button" id="open-invitation" type="button">Open Invitation <span aria-hidden="true">→</span></button>
+        </div>
+        <a class="scroll-cue" href="#couple" aria-label="Scroll to couple introduction"><img id="scroll-indicator" class="asset scroll-indicator-asset" src="assets/icons/scroll-indicator.svg" alt="Downward scroll indicator" width="18" height="31" /><span>Begin the journey</span></a>
+      </section>
+
+      <section class="scene couple-scene" id="couple" aria-labelledby="couple-title">
+        <img id="couple-intro-frame" class="asset couple-intro-frame-asset is-reveal" src="assets/images/" alt="Antique gold Islamic ornamental frame" width="880" height="760" loading="lazy" />
+        <img id="couple-jasmine" class="asset couple-jasmine-asset" src="assets/images/jasmine 1.png" alt="" aria-hidden="true" width="3952" height="4216" loading="lazy" />
+        <div class="couple-fallback-frame" aria-hidden="true"></div>
+        <div class="scene-copy couple-copy is-reveal">
+          <p class="arabic" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p><p class="kicker">With the blessings of Allah</p><p class="couple-prelude">Two hearts, one beautiful beginning</p>
+          <h2 id="couple-title"><span>Bhaijaan</span><b>&amp;</b><span>Bhabhi</span></h2><div class="gold-divider" aria-hidden="true"><i></i><span>✦</span><i></i></div><p class="supporting-copy">We invite you to share in the joy of our Nikah.</p>
+        </div>
+      </section>
+
+      <section class="scene palace-scene" id="palace-transition" aria-labelledby="palace-title">
+        <img id="palace-sky" class="asset palace-sky-asset parallax-asset" data-depth="0.05" src="assets/images/palace-sky.webp" alt="Daylight sky over the palace gardens" width="1600" height="1050" loading="lazy" />
+        <img id="palace-distant" class="asset palace-distant-asset parallax-asset" data-depth="0.10" src="assets/images/palace-distant.png" alt="Distant Islamic palace silhouette" width="1400" height="680" loading="lazy" />
+        <img id="palace-main" class="asset palace-main-asset parallax-asset" data-depth="0.16" src="assets/images/palace-main.png" alt="Grand royal Islamic palace entrance" width="1400" height="940" loading="lazy" />
+        <img id="garden-background" class="asset garden-background-asset parallax-asset" data-depth="0.22" src="assets/images/garden-backgrounf.webp" alt="Layered palace garden background" width="1024" height="1536" loading="lazy" />
+        <img id="garden-foreground" class="asset garden-foreground-asset parallax-asset" data-depth="0.30" src="assets/images/garden-foreground.png" alt="Foreground foliage and flowers in the palace garden" width="1600" height="630" loading="lazy" />
+        <img id="palace-arch" class="asset palace-arch-asset parallax-asset" data-depth="0.12" src="assets/images/palace-arch.png" alt="Ornamental Islamic archway in the foreground" width="1350" height="900" loading="lazy" />
+        <img id="palace-lantern" class="asset palace-lantern-asset" src="assets/images/lantern.png" alt="Hanging antique gold lantern" width="160" height="310" loading="lazy" />
+        <img id="floating-petals" class="asset floating-petals-asset parallax-asset" data-depth="0.18" src="assets/images/floating-petals.png" alt="Softly floating flower petals" width="1500" height="850" loading="lazy" />
+        <div class="palace-fallback" aria-hidden="true"><div class="fallback-palace-domes"><i></i><i></i><i></i></div><div class="fallback-garden"></div><div class="fallback-arch"></div></div>
+        <div class="scene-copy palace-copy is-reveal"><p class="kicker">The path to a sacred promise</p><h2 id="palace-title">Through the palace,<br />toward <em>forever.</em></h2><p class="supporting-copy">A beautiful beginning, illuminated with faith and love.</p></div>
+      </section>
+
+      <section class="scene hall-scene" id="nikah-hall" aria-labelledby="hall-title">
+        <img id="nikah-hall-background" class="asset nikah-hall-background-asset" src="assets/images/nikha-hall-background.png" alt="Elegant emerald and cream Nikah hall interior" width="1024" height="1536" loading="lazy" />
+        <img id="nikah-hall-floor" class="asset nikah-hall-floor-asset" src="assets/images/nikha-hall-floor.png" alt="Decorative floor of the Nikah hall" width="774" height="2031" loading="lazy" />
+        <img id="hall-floral-decor" class="asset hall-floral-decor-asset" src="assets/images/hall floral-decore.png" alt="Gold and cream floral hall decorations" width="821" height="1916" loading="lazy" />
+        <div class="hall-fallback" aria-hidden="true"><div class="hall-fallback-arch"></div><div class="hall-fallback-floor"></div></div>
+        <header class="scene-copy hall-heading is-reveal"><p class="kicker">In the company of family and duas</p><h2 id="hall-title">The Nikah <em>Begins</em></h2><p>May this union be filled with mercy, peace, and barakah.</p></header>
+        <div class="nikah-characters" role="group" aria-label="Bride and groom Nikah illustrations">
+          <img id="groom-nikah" class="asset groom-nikah-asset" src="assets/images/groom-nikah.png" alt="Groom in an elegant Nikah outfit" width="440" height="760" loading="lazy" />
+          <img id="bride-nikah" class="asset bride-nikah-asset" src="assets/images/bride-nikah.png" alt="Bride in an elegant Nikah outfit" width="440" height="760" loading="lazy" />
+          <div class="character-fallback groom-fallback" aria-hidden="true"><i></i><b></b></div><div class="character-fallback bride-fallback" aria-hidden="true"><i></i><b></b></div>
+        </div>
+      </section>
+
+      <section class="scene surah-scene" id="surah" aria-labelledby="surah-title">
+        <img id="prayer-background" class="asset prayer-background-asset" src="assets/images/prayer-background.webp" alt="Peaceful emerald prayer environment" width="1600" height="1080" loading="lazy" />
+        <img id="prayer-light" class="asset prayer-light-asset" src="assets/images/prayer-light.png" alt="Soft light falling into the prayer space" width="1300" height="980" loading="lazy" />
+        <img id="prayer-arch" class="asset prayer-arch-asset" src="assets/images/prayer-arch.png" alt="Elegant prayer arch ornament" width="1250" height="890" loading="lazy" />
+        <div class="prayer-fallback" aria-hidden="true"><div></div></div>
+        <div class="surah-copy is-reveal"><p class="kicker">Surah Ar-Rum · 30:21</p><h2 id="surah-title">Bound by <em>mercy</em></h2><blockquote class="arabic quran-verse" lang="ar" dir="rtl">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً</blockquote><div class="gold-divider" aria-hidden="true"><i></i><span>✦</span><i></i></div><p class="translation">“And among His signs is that He created for you mates from among yourselves so that you may find tranquility in them; and He placed between you affection and mercy.”</p><p class="dua-line">May Allah bless this union with love, mercy, and peace.</p></div>
+        <img id="couple-prayer" class="asset couple-prayer-asset" src="assets/images/couple-prayer.png" alt="Couple sitting together while making dua" width="700" height="590" loading="lazy" />
+        <div class="prayer-couple-fallback" aria-hidden="true"><i></i><i></i></div>
+      </section>
+
+      <section class="scene scratch-scene" id="scratch" aria-labelledby="scratch-title">
+        <div class="scratch-copy is-reveal"><p class="kicker">A golden moment awaits</p><h2 id="scratch-title">A Little <em>Surprise</em></h2><p>Scratch gently to reveal a special message.</p></div>
+        <div class="scratch-card" id="scratch-card">
+          <div class="scratch-message" aria-live="polite"><p class="kicker">With love and duas</p><strong>Save the Date</strong><b> April 2027</b><span>2:30 PM</span><span>Marriage Hall</span><p>May Allah bless this beautiful beginning.</p></div>
+          <img id="scratch-jasmine-accent" class="asset scratch-jasmine-accent-asset" src="assets/images/jasmine 1.png" alt="" aria-hidden="true" width="3952" height="4216" loading="lazy" />
+          <img id="scratch-decoration" class="asset scratch-decoration-asset" src="assets/images/scratch-decoration.png" alt="Subtle gold floral decoration around the scratch card" width="680" height="390" loading="lazy" />
+          <img id="scratch-border" class="asset scratch-border-asset" src="assets/images/scratch-border.png" alt="Antique gold scratch card border" width="760" height="465" loading="lazy" />
+          <canvas id="scratch-canvas" aria-label="Scratch the gold card to reveal the Save the Date message" aria-describedby="scratch-status"></canvas>
+          <img id="scratch-overlay" class="asset scratch-overlay-asset" src="assets/images/scratch-overlay.png" alt="Antique gold scratchable overlay pattern" width="720" height="425" loading="lazy" />
+        </div>
+        <p class="scratch-status" id="scratch-status" aria-live="polite">Scratch the gold card to reveal the message.</p><button class="text-button" id="reveal-message" type="button">Reveal Message</button>
+      </section>
+
+      <section class="scene events-scene" id="events" aria-labelledby="events-title">
+        <img id="events-background" class="asset events-background-asset" src="assets/images/events-background.webp" alt="Emerald wedding events background with subtle ornamentation" width="1600" height="1100" loading="lazy" />
+        <img id="events-floral-garland" class="asset events-floral-garland-asset" src="assets/images/floral borders 1.png" alt="" aria-hidden="true" width="4796" height="3304" loading="lazy" />
+        <div class="events-copy is-reveal"><p class="kicker">Save the celebration</p><h2 id="events-title">The Wedding <em>Events</em></h2></div>
+        <div class="event-grid">
+          <article class="event-card is-reveal" style="--delay: .04s"><img id="haldi-icon" class="asset haldi-icon-asset" src="assets/images/haldi-icon.svg" alt="Haldi ceremony icon" width="46" height="46" loading="lazy" /><h3>Haldi</h3><p> April 2027</p><i></i><small> Home</small></article>
+          <article class="event-card is-reveal" style="--delay: .13s"><img id="mehndi-icon" class="asset mehndi-icon-asset" src="assets/images/mehndi-icon.svg" alt="Mehndi ceremony icon" width="46" height="46" loading="lazy" /><h3>Mehndi</h3><p> April 2027</p><i></i><small> Home</small></article>
+          <article class="event-card featured-event is-reveal" style="--delay: .22s"><img id="nikah-icon" class="asset nikah-icon-asset" src="assets/images/nikah-icon.svg" alt="Nikah ceremony icon" width="46" height="46" loading="lazy" /><h3>Nikah</h3><p> April 2027 · 2:30 PM</p><i></i><small> Marriage Hall</small></article>
+          <article class="event-card is-reveal" style="--delay: .31s"><img id="walima-icon" class="asset walima-icon-asset" src="assets/images/walima-icon.svg" alt="Walima ceremony icon" width="46" height="46" loading="lazy" /><h3>Walima</h3><p> April 2027</p><i></i><small> Marriage Hall</small></article>
+        </div>
+      </section>
+
+      <section class="scene countdown-scene" id="countdown" aria-labelledby="countdown-title">
+        <img id="countdown-background" class="asset countdown-background-asset" src="assets/images/countdown-background.webp" alt="Warm cream countdown background with gold details" width="1600" height="950" loading="lazy" /><img id="countdown-ornament" class="asset countdown-ornament-asset" src="assets/images/countdown-ornament.png" alt="Antique gold countdown ornament" width="390" height="390" loading="lazy" />
+        <div class="countdown-copy is-reveal"><p class="kicker">The moment draws near</p><h2 id="countdown-title">Counting down to <em>Nikah</em></h2><p class="timer-date">Tuesday, 6 April 2027 · 2:30 PM IST</p><div class="timer" id="timer" aria-live="polite" aria-label="Countdown to the Nikah"><div><b id="days">000</b><span>Days</span></div><i></i><div><b id="hours">00</b><span>Hours</span></div><i></i><div><b id="minutes">00</b><span>Minutes</span></div><i></i><div><b id="seconds">00</b><span>Seconds</span></div></div><p class="arrival-message" id="arrival-message" hidden>The blessed day has arrived.</p></div>
+      </section>
+
+      <section class="scene hosts-scene" id="hosts" aria-labelledby="hosts-title">
+        <img id="hosts-background" class="asset hosts-background-asset" src="assets/images/hosts-background.webp" alt="Warm cream hosts section background" width="1600" height="1020" loading="lazy" /><img id="host-card-frame" class="asset host-card-frame-asset" src="assets/images/host-card-frame.png" alt="Antique gold ornamental frame for host cards" width="620" height="390" loading="lazy" />
+        <div class="hosts-copy is-reveal"><p class="kicker">With the prayers of our families</p><h2 id="hosts-title">Our <em>Hosts</em></h2></div><div class="host-grid"><article class="host-card is-reveal" style="--delay: .08s"><span aria-hidden="true">✦</span><h3>khalu</h3><p>Father of the Groom</p></article><article class="host-card is-reveal" style="--delay: .18s"><span aria-hidden="true">✦</span><h3>Bhabhi's Father</h3><p>Father of the Bride</p></article></div>
+      </section>
+
+      <section class="scene blessing-scene" id="blessing" aria-labelledby="blessing-title">
+        <img id="blessing-background" class="asset blessing-background-asset" src="assets/images/blessing-background.webp" alt="Calm emerald and gold blessing background" width="1600" height="950" loading="lazy" /><img id="blessing-ornament" class="asset blessing-ornament-asset" src="assets/images/blessing-ornament.png" alt="Gold Islamic blessing ornament" width="360" height="360" loading="lazy" />
+        <div class="blessing-copy is-reveal"><p class="arabic blessing-arabic" lang="ar" dir="rtl">بَارَكَ اللَّهُ لَكُمَا وَبَارَكَ عَلَيْكُمَا وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ</p><div class="gold-divider" aria-hidden="true"><i></i><span>✦</span><i></i></div><h2 id="blessing-title">May your journey be held<br />in <em>goodness.</em></h2><p>“May Allah bless you both, shower His blessings upon you, and join you together in goodness.”</p></div>
+      </section>
+
+      <section class="scene names-scene" id="names" aria-labelledby="names-title">
+        <img id="names-background" class="asset names-background-asset" src="assets/images/names-background.webp" alt="Soft cream final names background" width="1600" height="1050" loading="lazy" /><img id="names-floral-border" class="asset names-floral-border-asset" src="assets/images/names-floral-border.png" alt="Delicate antique gold floral border" width="1250" height="900" loading="lazy" /><img id="gold-sparkles" class="asset gold-sparkles-asset" src="assets/images/gold-sparkles.png" alt="Floating gold sparkles" width="1300" height="900" loading="lazy" /><img id="names-extra-sparkles" class="asset names-extra-sparkles-asset" src="assets/images/sparkles 1.png" alt="" aria-hidden="true" width="500" height="500" loading="lazy" />
+        <div class="names-copy is-reveal"><p class="kicker">With love and duas</p><h2 id="names-title"><span>Bhaijaan</span><b>✦</b><span>Bhabhi</span></h2><p> April 2027</p></div>
+      </section>
+    </main>
+
+    <audio id="background-nasheed" preload="none" loop></audio>
+    <noscript><p class="noscript-note">Please enable JavaScript for the invitation’s animations, countdown, music control, and scratch card.</p></noscript>
+    <script src="scripts/main.js" defer></script><script src="scripts/animations.js" defer></script><script src="scripts/countdown.js" defer></script><script src="scripts/scratch-card.js" defer></script><script src="scripts/music.js" defer></script>
+  </body>
+</html>

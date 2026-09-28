@@ -1,0 +1,838 @@
+@media (min-width: 640px) {
+  .fixed-actions { top: 26px; right: 26px; }.control-button { width: 47px; height: 47px; }
+  .welcome-copy { padding-bottom: 270px; }.welcome-palace-asset { height: 55%; }.welcome-fallback-palace { height: 41%; }
+  .couple-scene { min-height: 730px; }.couple-copy h2 { grid-template-columns: auto auto auto; align-items: center; gap: 18px; }.couple-copy h2 b { font-size: .7em; }
+  .palace-scene { min-height: 880px; }.palace-copy { padding-top: 10px; }.palace-lantern-asset { left: 15%; width: 44px; height: 90px; }.fallback-arch { width: min(67vw, 470px); }
+  .hall-scene { min-height: 790px; }.nikah-characters { width: min(75vw, 520px); height: 435px; --character-scale: 1; }
+  .surah-scene { min-height: 820px; }.couple-prayer-asset { width: min(65vw,460px); }.scratch-card { height: 278px; }.event-grid { grid-template-columns: 1fr 1fr; gap: 16px; }.event-card { min-height: 178px; }
+  .timer { gap: 12px; }.timer div { min-width: 88px; padding: 18px 8px 13px; }.timer>i { margin:0 2px; }.host-grid { grid-template-columns: 1fr 1fr; gap: 20px; }.names-copy h2 { grid-template-columns:auto auto auto; align-items:center; gap:22px; }
+}
+
+@media (min-width: 980px) {
+  .welcome-copy { padding-bottom: 295px; }.welcome-palace-asset { width:min(104%,1150px); }.welcome-foreground-asset { width:min(120%,1420px); }.welcome-fallback-palace{width:min(96%,1100px);height:43%;}
+  .couple-intro-frame-asset { width: 660px; height: 570px; }.couple-fallback-frame { width: 590px; height: 510px; }.couple-copy { max-width: 630px; }
+  .palace-scene { min-height: 920px; }.palace-main-asset { width:min(108%,1250px); }.palace-arch-asset { width:min(107%,1180px); }.fallback-arch{height:63%;width:min(50vw,610px)}.palace-copy{padding-top:15px}
+  .hall-scene { min-height: 850px; }.nikah-characters { height: 510px; width: 570px; --groom-x:-16%;--bride-x:15%; }.hall-floral-decor-asset{height:37%}.couple-prayer-asset{height:33%}
+  .surah-scene { min-height: 850px; }.surah-copy { padding-top: 5px; }.event-grid{grid-template-columns:repeat(4,1fr);width:min(100%,1100px)}.event-card{padding:23px 12px}.event-card h3{font-size:25px}.event-card p{font-size:11px}
+  .host-grid { width: min(100%, 700px); }.names-copy h2 { font-size: clamp(54px,6vw,88px); }
+}
+
+@media (max-width: 370px) {
+  .welcome-copy { padding-bottom: 225px; }.welcome-copy h1 { font-size: 40px; }.welcome-invitation { font-size: 16px; }.scroll-cue { font-size: 8px; }.timer { gap: 3px; }.timer div { min-width: 55px; padding: 11px 3px 8px; }.timer>i { display:none; }.scratch-card { height: 225px; }.event-card { min-height: 150px; }
+}
+
+/* Supplied artwork composition pass
+   The provided scene files are mostly portrait compositions. These rules keep
+   their shared centre lines, ground lines, and positive layer order intact on
+   small screens before widening gracefully for larger displays. */
+.page-noise { z-index: 130; }
+.scene, .intro-screen { isolation: isolate; }
+.scene > .asset, .intro-screen > .asset { pointer-events: none; }
+
+/* The original CSS fallbacks remain in the markup for absent artwork, but no
+   longer compete with the supplied scene art. */
+.intro-fallback-scene,
+.welcome-fallback-palace,
+.couple-fallback-frame,
+.palace-fallback,
+.hall-fallback,
+.prayer-fallback,
+.prayer-couple-fallback,
+.groom-fallback,
+.bride-fallback { display: none; }
+
+/* Intro and welcome: sky, palace, foreground, then live HTML. */
+.intro-screen { background: #0a4b3d; }
+.intro-screen::before { z-index: 2; }
+.intro-screen .intro-sky-asset { z-index: 1; }
+.intro-screen .intro-palace-asset { z-index: 3; width: min(148%, 970px); height: auto; bottom: -1px; }
+.intro-screen .intro-foreground-asset { z-index: 8; width: min(158%, 1030px); height: auto; bottom: -1px; object-fit: contain; }
+.intro-content { z-index: 30; padding-bottom: clamp(230px, 34vh, 300px); }
+
+.welcome-scene { background: #0b4c3e; }
+.welcome-sky-asset { z-index: 1; }
+.welcome-scene::before { z-index: 2; }
+.welcome-palace-asset { z-index: 3; width: min(152%, 1000px); height: auto; bottom: -1px; }
+.welcome-foreground-asset { z-index: 8; width: min(160%, 1070px); height: auto; bottom: -1px; object-fit: contain; }
+.welcome-copy, .scroll-cue { z-index: 20; }
+.welcome-copy { padding-bottom: clamp(230px, 34vh, 310px); }
+
+/* Couple frame and its quiet floral accent. */
+.couple-intro-frame-asset { z-index: 3; width: min(94vw, 610px); height: min(114vw, 650px); }
+.couple-jasmine-asset { position: absolute; z-index: 2; bottom: -7%; left: -13%; width: min(48vw, 255px); height: auto; opacity: .2; transform: rotate(-16deg); }
+.couple-copy { z-index: 20; }
+
+/* Palace journey: each supplied image occupies a predictable depth plane. */
+.palace-scene { min-height: max(900px, 112svh); padding-top: 84px; background: #a8d4dc; }
+.palace-scene .palace-sky-asset { z-index: 1; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.palace-scene .garden-background-asset { z-index: 2; right: 0; bottom: 0; left: 0; width: 100%; height: 70%; object-fit: cover; object-position: center bottom; }
+.palace-scene .palace-distant-asset { z-index: 3; bottom: 32%; left: 50%; width: 63%; height: auto; object-fit: contain; object-position: bottom; }
+.palace-scene .palace-main-asset { z-index: 4; bottom: 8%; left: 50%; width: 76%; height: auto; object-fit: contain; object-position: bottom; }
+.palace-scene .palace-arch-asset { z-index: 6; bottom: -1%; left: 50%; width: 106%; height: auto; object-fit: contain; object-position: bottom; }
+.palace-scene .garden-foreground-asset { z-index: 7; right: -5%; bottom: -1px; left: -5%; width: 110%; height: 78%; object-fit: contain; object-position: center bottom; }
+.palace-scene .floating-petals-asset { z-index: 8; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .42; }
+.palace-scene .palace-lantern-asset { z-index: 9; }
+.palace-copy { position: relative; z-index: 20; padding: 0 10px; }
+
+/* Nikah Hall: the portrait hall is a real, visible base with a shared floor. */
+.hall-scene { min-height: max(900px, 112svh); padding: 72px 20px 0; color: var(--emerald-950); background: linear-gradient(150deg, #e9d7ae, #c2a56f); }
+.nikah-hall-background-asset { z-index: 1; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center center; opacity: 1; }
+.nikah-hall-floor-asset { z-index: 3; right: 0; bottom: -1px; left: 0; width: 100%; height: 48%; object-fit: cover; object-position: center bottom; }
+.hall-floral-decor-asset { z-index: 4; right: 0; bottom: 0; left: 0; width: 100%; height: 84%; object-fit: contain; object-position: center bottom; opacity: .74; transform: none; }
+.hall-heading { z-index: 20; width: min(100%, 480px); margin: 0 auto; padding: 13px 15px 11px; border: 1px solid rgba(184, 137, 54, .26); background: rgba(255, 249, 231, .74); box-shadow: 0 8px 26px rgba(77, 51, 12, .08); backdrop-filter: blur(4px); }
+.hall-heading .kicker, .hall-heading h2 em { color: var(--gold); }
+.hall-heading h2 { color: var(--emerald-950); }
+.hall-heading p:last-child { color: var(--muted); }
+.nikah-characters { z-index: 6; width: min(92vw, 500px); height: clamp(380px, 51svh, 520px); margin-bottom: max(6px, 1vh); --groom-x: -10%; --bride-x: 8%; --character-scale: .96; }
+.nikah-characters .asset { z-index: 3; width: 53%; height: 100%; }
+.character-fallback { z-index: 2; bottom: 0; width: 42%; height: 82%; box-shadow: 0 9px 12px rgba(52, 36, 14, .16); }
+.groom-fallback { left: 6%; background: linear-gradient(90deg, #c79b4f, #fff3cd 49%, #a9762e); }
+.groom-fallback i { background: #a86e4c; }
+
+/* Surah: the supplied prayer room is the first visual layer, not a hidden one. */
+.surah-scene { min-height: max(920px, 115svh); padding: 76px 20px 0; color: var(--emerald-950); background: #e8d2a4; }
+.prayer-background-asset { z-index: 1; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center center; opacity: 1; }
+.prayer-light-asset { z-index: 2; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: .15; transform: none; }
+.prayer-arch-asset { z-index: 3; right: 0; bottom: -1px; left: 0; width: 100%; height: 90%; object-fit: contain; object-position: center bottom; opacity: .66; transform: none; }
+.surah-copy { z-index: 20; width: min(100%, 620px); padding: 12px 9px 305px; margin: 0 auto; }
+.surah-copy .kicker, .surah-copy h2 em, .dua-line { color: var(--gold); }
+.surah-copy h2, .quran-verse { color: var(--emerald-950); }
+.translation { color: #3b5d51; }
+.couple-prayer-asset { z-index: 6; bottom: -2px; left: 50%; width: min(84vw, 430px); height: auto; object-fit: contain; object-position: center bottom; }
+.surah-scene.is-active .couple-prayer-asset { transform: translate(-50%, -3px); }
+
+/* Scratch card keeps the working canvas surface; the added botanical layer lives
+   under its live message, the border, and the scratch coating. */
+.scratch-scene { min-height: 760px; }
+.scratch-card { border-color: #b78334; background: radial-gradient(circle at 50% 33%, #21745b, #074336 72%); }
+.scratch-message { z-index: 2; }
+.scratch-jasmine-accent-asset { position: absolute; z-index: 1; right: -8%; bottom: -28%; width: 58%; height: auto; opacity: .14; transform: rotate(-12deg); }
+.scratch-decoration-asset { z-index: 3; }
+.scratch-border-asset { z-index: 5; }
+.scratch-overlay-asset { z-index: 4; }
+
+/* Events retain their readable cards. The small supplied garland is deliberately
+   quiet and sits behind all live event copy. */
+.events-scene { min-height: 860px; background: #0b4b3d; }
+.events-background-asset { z-index: 1; opacity: 1; }
+.events-scene::before { z-index: 2; }
+.events-floral-garland-asset { position: absolute; z-index: 3; top: -10px; left: 50%; width: min(108%, 650px); height: auto; opacity: .1; transform: translateX(-50%); }
+.events-copy, .event-grid { z-index: 20; }
+.event-card { background: rgba(4, 61, 49, .73); backdrop-filter: blur(3px); }
+
+/* Closing portrait backgrounds now sit within, rather than beneath, each scene. */
+.countdown-scene, .hosts-scene, .blessing-scene, .names-scene { background: #f8e9c9; }
+.countdown-background-asset, .hosts-background-asset, .blessing-background-asset, .names-background-asset { z-index: 1; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center center; opacity: 1; }
+.countdown-scene::before { z-index: 2; }
+.countdown-copy, .hosts-copy, .host-grid, .blessing-copy, .names-copy { position: relative; z-index: 20; }
+.countdown-ornament-asset, .host-card-frame-asset, .blessing-ornament-asset, .names-floral-border-asset { z-index: 4; }
+.host-card { background: rgba(255, 249, 232, .82); backdrop-filter: blur(3px); }
+.blessing-scene { color: var(--emerald-950); }
+.blessing-scene::before { z-index: 2; }
+.blessing-arabic, .blessing-copy h2 em { color: var(--gold); }
+.blessing-copy h2 { color: var(--emerald-950); }
+.blessing-copy > p:last-child { color: #3b5d51; }
+.names-extra-sparkles-asset { position: absolute; z-index: 8; top: 12%; left: 50%; width: min(86vw, 410px); height: auto; opacity: .56; transform: translateX(-50%); animation: gold-drift 8s ease-in-out infinite alternate; }
+.gold-sparkles-asset { z-index: 8; }
+
+@media (min-width: 700px) {
+  .intro-screen .intro-palace-asset, .welcome-palace-asset { width: min(110%, 1120px); }
+  .intro-screen .intro-foreground-asset, .welcome-foreground-asset { width: min(120%, 1240px); }
+  .palace-scene { min-height: 940px; }
+  .palace-scene .garden-background-asset { width: min(760px, 86%); height: 79%; left: 50%; right: auto; transform: translateX(-50%); object-fit: contain; }
+  .palace-scene .palace-distant-asset { width: min(470px, 48%); bottom: 31%; }
+  .palace-scene .palace-main-asset { width: min(570px, 60%); bottom: 6%; }
+  .palace-scene .palace-arch-asset { width: min(790px, 78%); }
+  .palace-scene .garden-foreground-asset { width: min(790px, 82%); height: 83%; left: 50%; right: auto; transform: translateX(-50%); }
+  .nikah-hall-background-asset, .prayer-background-asset, .countdown-background-asset, .hosts-background-asset, .blessing-background-asset, .names-background-asset { object-fit: contain; background: #f6e6c2; }
+  .hall-scene, .surah-scene { min-height: 880px; }
+  .nikah-characters { height: 500px; width: 560px; }
+  .surah-copy { padding-bottom: 330px; }
+  .couple-prayer-asset { width: min(420px, 44vw); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .names-extra-sparkles-asset { animation: none; }
+}
+
+/*
+  Final responsive scene-canvas pass
+  ----------------------------------
+  Each section owns a clipped illustration canvas.  The supplied portrait
+  artwork keeps a stable centre line and ground plane; wide screens expand
+  the surrounding environment rather than stretching individual cut-outs.
+*/
+:root {
+  --scene-min-height: max(680px, 100svh);
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-inline: max(18px, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
+  /* Keep the content rail inside the usable viewport. `calc()` is required
+     here: a raw subtraction inside `min()` is invalid CSS and silently falls
+     back to the older fixed-width rule on some browsers. */
+  --safe-content-width: min(calc(100% - var(--safe-inline) - var(--safe-inline)), 44rem);
+  --scene-side-padding: clamp(18px, 4vw, 64px);
+  --portrait-bleed: clamp(18px, 5vw, 96px);
+}
+
+@supports not (height: 100svh) {
+  :root { --scene-min-height: max(680px, 100vh); }
+}
+
+html, body, main { max-inline-size: 100%; }
+main { overflow-x: clip; }
+
+.scene,
+.intro-screen {
+  isolation: isolate;
+  overflow: clip;
+}
+
+.scene { position: relative; }
+
+/* The landing scene remains an overlay; it must never reserve document space
+   after it fades, otherwise the first welcome scene starts below a blank gap. */
+.intro-screen { position: fixed; }
+
+.scene > .asset,
+.intro-screen > .asset {
+  pointer-events: none;
+}
+
+.scene-copy,
+.intro-content {
+  max-inline-size: var(--safe-content-width);
+  margin-inline: auto;
+}
+
+/* The hero scenes use the same architectural centre line on every screen. */
+.intro-screen,
+.welcome-scene {
+  --hero-palace-width: clamp(590px, 78vw, 1180px);
+  --hero-foreground-width: clamp(650px, 92vw, 1320px);
+}
+
+.intro-screen .intro-palace-asset,
+.welcome-scene .welcome-palace-asset {
+  left: 50%;
+  width: var(--hero-palace-width);
+  height: auto;
+  max-width: none;
+  object-fit: contain;
+  object-position: center bottom;
+  z-index: 3;
+}
+
+.intro-screen .intro-foreground-asset,
+.welcome-scene .welcome-foreground-asset {
+  left: 50%;
+  width: var(--hero-foreground-width);
+  height: auto;
+  max-width: none;
+  object-fit: contain;
+  object-position: center bottom;
+  z-index: 8;
+}
+
+/* A positive, local depth plane keeps the welcome sky and ornament visible
+   inside its isolated scene rather than relying on the legacy negative stack. */
+.welcome-scene .welcome-sky-asset { z-index: 1; }
+.welcome-scene::before { z-index: 2; }
+
+.intro-content,
+.welcome-copy {
+  width: var(--safe-content-width);
+  padding-inline: 0;
+  padding-bottom: clamp(250px, 34svh, 320px);
+  z-index: 30;
+}
+
+.intro-content h1,
+.welcome-copy h1 {
+  font-size: clamp(39px, 8.8vw, 73px);
+}
+
+.welcome-copy { z-index: 20; }
+
+/* The couple frame is an actual container around its HTML copy, not a fixed
+   desktop rectangle. */
+.couple-scene {
+  min-height: var(--scene-min-height);
+  padding-inline: var(--scene-side-padding);
+}
+
+.couple-intro-frame-asset {
+  width: clamp(320px, 82vw, 570px);
+  height: auto;
+  aspect-ratio: 1168 / 1347;
+  object-fit: contain;
+  z-index: 3;
+}
+
+.couple-copy {
+  width: var(--safe-content-width);
+  z-index: 20;
+}
+
+.couple-jasmine-asset {
+  width: clamp(125px, 34vw, 255px);
+  bottom: -4%;
+  left: max(-38px, -4vw);
+}
+
+/* Palace journey — every layer is related to one illustrated world canvas. */
+.palace-scene {
+  --palace-canvas-width: clamp(560px, 72vw, 1080px);
+  --palace-canvas-height: max(900px, 112svh);
+  min-height: var(--palace-canvas-height);
+  padding: calc(72px + var(--safe-top)) var(--scene-side-padding) 0;
+}
+
+.palace-scene .palace-sky-asset {
+  z-index: 1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 42%;
+  transform: translate3d(0, var(--scroll-shift, 0px), 0);
+}
+
+.palace-scene .garden-background-asset {
+  z-index: 2;
+  top: 50%;
+  right: auto;
+  bottom: auto;
+  left: 50%;
+  width: var(--palace-canvas-width);
+  height: var(--palace-canvas-height);
+  max-width: none;
+  object-fit: cover;
+  object-position: 50% 58%;
+  transform: translate3d(-50%, calc(-50% + var(--scroll-shift, 0px)), 0);
+}
+
+.palace-scene .palace-distant-asset {
+  z-index: 3;
+  bottom: 32%;
+  left: 50%;
+  width: clamp(350px, 48vw, 680px);
+  height: auto;
+  max-width: none;
+  object-fit: contain;
+  object-position: center bottom;
+  transform: translate3d(-50%, var(--scroll-shift, 0px), 0);
+}
+
+.palace-scene .palace-main-asset {
+  z-index: 4;
+  bottom: 9%;
+  left: 50%;
+  width: clamp(430px, 60vw, 820px);
+  height: auto;
+  max-width: none;
+  object-fit: contain;
+  object-position: center bottom;
+  transform: translate3d(-50%, var(--scroll-shift, 0px), 0);
+}
+
+.palace-scene .palace-arch-asset {
+  z-index: 6;
+  right: auto;
+  bottom: -1px;
+  left: 50%;
+  width: clamp(500px, 76vw, 980px);
+  height: min(86%, 920px);
+  max-width: none;
+  object-fit: contain;
+  object-position: center bottom;
+  transform: translate3d(-50%, var(--scroll-shift, 0px), 0);
+}
+
+.palace-scene .garden-foreground-asset {
+  z-index: 7;
+  right: auto;
+  bottom: -1px;
+  left: 50%;
+  width: clamp(520px, 82vw, 1080px);
+  height: min(74%, 820px);
+  max-width: none;
+  object-fit: contain;
+  object-position: center bottom;
+  transform: translate3d(-50%, var(--scroll-shift, 0px), 0);
+}
+
+.palace-scene .floating-petals-asset {
+  z-index: 8;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: .4;
+  transform: translate3d(0, var(--scroll-shift, 0px), 0);
+}
+
+.palace-scene .palace-lantern-asset {
+  z-index: 9;
+  top: clamp(82px, 11svh, 130px);
+  left: clamp(16px, 9vw, 13%);
+}
+
+.palace-copy {
+  width: var(--safe-content-width);
+  z-index: 20;
+}
+
+/* Hall: background, floor, floral frame, then one shared character group.
+   This keeps the bride and groom on the same perspective plane. */
+.hall-scene {
+  --hall-canvas-width: 100%;
+  --hall-canvas-height: 100%;
+  display: block;
+  min-height: max(820px, 105svh);
+  padding: calc(72px + var(--safe-top)) var(--scene-side-padding) 0;
+}
+
+.nikah-hall-background-asset {
+  z-index: 1;
+  inset: 0;
+  width: var(--hall-canvas-width);
+  height: var(--hall-canvas-height);
+  max-width: none;
+  object-fit: cover;
+  object-position: 50% 52%;
+}
+
+.nikah-hall-floor-asset {
+  z-index: 3;
+  right: auto;
+  bottom: 0;
+  left: 50%;
+  width: var(--hall-canvas-width);
+  height: 52%;
+  max-width: none;
+  object-fit: fill;
+  object-position: center bottom;
+  transform: translateX(-50%);
+}
+
+.hall-floral-decor-asset {
+  z-index: 4;
+  right: auto;
+  bottom: 0;
+  left: 50%;
+  width: var(--hall-canvas-width);
+  height: var(--hall-canvas-height);
+  max-width: none;
+  object-fit: fill;
+  object-position: center bottom;
+  opacity: .52;
+  transform: translateX(-50%);
+}
+
+.hall-heading {
+  position: relative;
+  width: min(var(--safe-content-width), 32rem);
+  margin-inline: auto;
+  z-index: 20;
+}
+
+.nikah-characters {
+  position: absolute;
+  z-index: 6;
+  bottom: clamp(42px, 7svh, 92px);
+  left: 50%;
+  width: clamp(286px, 76vw, 580px);
+  height: clamp(350px, 54svh, 520px);
+  margin: 0;
+  transform: translateX(-50%);
+  --groom-x: -8%;
+  --bride-x: 7%;
+  --character-scale: .96;
+}
+
+.nikah-characters .asset {
+  z-index: 3;
+  width: 53%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+.character-fallback {
+  z-index: 2;
+  bottom: 0;
+  width: 41%;
+  height: 82%;
+  box-shadow: 0 8px 12px rgba(52, 36, 14, .12);
+}
+
+.groom-fallback { left: 6%; }
+
+/* Prayer scene uses an independent, but matching, centred prayer canvas. */
+.surah-scene {
+  --prayer-canvas-width: 100%;
+  --prayer-canvas-height: 100%;
+  display: block;
+  min-height: max(880px, 110svh);
+  padding: calc(74px + var(--safe-top)) var(--scene-side-padding) 0;
+}
+
+.prayer-background-asset {
+  z-index: 1;
+  inset: 0;
+  width: var(--prayer-canvas-width);
+  height: var(--prayer-canvas-height);
+  max-width: none;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.prayer-light-asset {
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  width: var(--prayer-canvas-width);
+  height: var(--prayer-canvas-height);
+  max-width: none;
+  object-fit: cover;
+  object-position: center;
+  opacity: .16;
+  transform: translate(-50%, -50%);
+}
+
+.prayer-arch-asset {
+  z-index: 3;
+  right: auto;
+  bottom: 0;
+  left: 50%;
+  width: var(--prayer-canvas-width);
+  height: var(--prayer-canvas-height);
+  max-width: none;
+  object-fit: fill;
+  object-position: center bottom;
+  opacity: .44;
+  transform: translateX(-50%);
+}
+
+.surah-copy {
+  position: relative;
+  z-index: 20;
+  width: var(--safe-content-width);
+  padding: 0 0 clamp(290px, 34svh, 350px);
+}
+
+.couple-prayer-asset {
+  z-index: 6;
+  bottom: clamp(12px, 2svh, 28px);
+  left: 50%;
+  width: clamp(290px, 75vw, 520px);
+  height: auto;
+  max-width: none;
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+/* The verse stays live HTML, with only a light contrast lift over the
+   supplied daylight background. */
+.surah-copy .translation {
+  color: #254d42;
+  font-size: clamp(13px, 1.05vw, 15px);
+  font-weight: 500;
+  line-height: 1.72;
+  text-shadow: 0 1px 0 rgba(255, 250, 236, .72);
+}
+
+/* The quieter portrait pieces are allowed to grow at the sides with their own
+   supplied artwork, so large screens never become a bare cream field. */
+.countdown-scene,
+.hosts-scene,
+.blessing-scene,
+.names-scene {
+  --quiet-canvas-width: 100%;
+  --quiet-canvas-height: 100%;
+  min-height: var(--scene-min-height);
+  padding-inline: var(--scene-side-padding);
+}
+
+.countdown-background-asset,
+.hosts-background-asset,
+.blessing-background-asset,
+.names-background-asset {
+  z-index: 1;
+  inset: 0;
+  width: var(--quiet-canvas-width);
+  height: var(--quiet-canvas-height);
+  max-width: none;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.countdown-ornament-asset,
+.host-card-frame-asset,
+.blessing-ornament-asset,
+.names-floral-border-asset { z-index: 10; }
+
+.gold-sparkles-asset { z-index: 12; }
+
+.countdown-copy,
+.hosts-copy,
+.host-grid,
+.blessing-copy,
+.names-copy {
+  width: var(--safe-content-width);
+  z-index: 20;
+}
+
+.timer {
+  width: min(100%, 34rem);
+  margin-inline: auto;
+}
+
+.timer div {
+  min-width: clamp(57px, 17vw, 94px);
+}
+
+.host-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); }
+
+/* Events use the same local scene stack as the illustrated scenes. */
+.events-scene { isolation: isolate; }
+.events-background-asset { z-index: 1; }
+.events-scene::before { z-index: 2; }
+.events-copy,
+.event-grid { z-index: 20; }
+
+.names-extra-sparkles-asset {
+  width: clamp(240px, 48vw, 430px);
+  left: 50%;
+}
+
+@media (min-width: 700px) {
+  .intro-screen,
+  .welcome-scene {
+    --hero-palace-width: clamp(760px, 78vw, 1180px);
+    --hero-foreground-width: clamp(900px, 92vw, 1320px);
+  }
+
+  .intro-screen .intro-palace-asset,
+  .welcome-scene .welcome-palace-asset { bottom: clamp(-160px, -10vw, -96px); }
+
+  .intro-content,
+  .welcome-copy { padding-bottom: clamp(380px, 50svh, 470px); }
+
+  .intro-content h1,
+  .welcome-copy h1 { font-size: clamp(47px, 5.2vw, 73px); }
+
+  .couple-intro-frame-asset { width: clamp(450px, 42vw, 570px); }
+  .couple-copy h2 { grid-template-columns: auto auto auto; align-items: center; gap: 18px; }
+
+  .palace-scene {
+    --palace-canvas-width: clamp(650px, 58vw, 940px);
+    --palace-canvas-height: max(940px, 116svh);
+  }
+
+  /* Turn the portrait garden into a soft full-scene atmosphere on wide
+     screens, then keep the independently replaceable palace and arch as the
+     focal layers. This avoids a hard portrait-image rectangle. */
+  .palace-scene .garden-background-asset {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-position: 50% 58%;
+    opacity: .3;
+    transform: translate3d(0, var(--scroll-shift, 0px), 0);
+  }
+
+  .palace-scene .palace-distant-asset { width: clamp(360px, 39vw, 560px); bottom: 28%; }
+  .palace-scene .palace-main-asset { width: clamp(430px, 42vw, 620px); bottom: -5%; }
+  .palace-scene .palace-arch-asset { width: clamp(540px, 58vw, 860px); }
+  .palace-scene .garden-foreground-asset { width: clamp(600px, 78vw, 1080px); height: min(74%, 820px); }
+  .palace-copy {
+    width: min(var(--safe-content-width), 39rem);
+    padding: 12px 18px 15px;
+    border: 1px solid rgba(184, 137, 54, .2);
+    background: rgba(255, 248, 229, .54);
+    box-shadow: 0 9px 24px rgba(78, 53, 14, .07);
+  }
+
+  .palace-scene .palace-lantern-asset { left: clamp(28px, 12vw, 17%); }
+
+  .hall-scene,
+  .surah-scene {
+    min-height: max(860px, 100svh);
+  }
+
+  .hall-scene {
+    --hall-canvas-width: clamp(650px, 52vw, 920px);
+    --hall-canvas-height: max(1020px, 118svh);
+    background-color: #e9d9ba;
+  }
+
+  .hall-scene::before {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    background: linear-gradient(rgba(244, 229, 199, .72), rgba(225, 205, 164, .72)), url("../assets/images/nikha-hall-background.png") center 52% / cover no-repeat;
+    content: "";
+  }
+
+  .nikah-hall-background-asset {
+    top: 50%;
+    right: auto;
+    bottom: auto;
+    left: 50%;
+    object-position: center;
+    transform: translate(-50%, -50%);
+  }
+
+  .nikah-hall-floor-asset,
+  .hall-floral-decor-asset { width: var(--hall-canvas-width); }
+
+  .nikah-characters {
+    bottom: clamp(52px, 8svh, 96px);
+    width: clamp(430px, 39vw, 580px);
+    height: clamp(410px, 54svh, 520px);
+  }
+
+  .surah-scene {
+    --prayer-canvas-width: clamp(620px, 49vw, 900px);
+    --prayer-canvas-height: max(1020px, 118svh);
+    background-color: #e8d5ac;
+  }
+
+  .surah-scene::before {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    background: linear-gradient(rgba(239, 220, 183, .68), rgba(213, 184, 131, .68)), url("../assets/images/prayer-background.webp") center 50% / cover no-repeat;
+    content: "";
+  }
+
+  .prayer-background-asset,
+  .prayer-light-asset {
+    top: 50%;
+    right: auto;
+    bottom: auto;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .prayer-arch-asset { width: var(--prayer-canvas-width); }
+  .surah-copy {
+    width: min(var(--safe-content-width), var(--prayer-canvas-width));
+    padding-bottom: clamp(310px, 38svh, 380px);
+  }
+  .surah-copy .quran-verse { font-size: clamp(22px, 2.2vw, 30px); }
+  .couple-prayer-asset { bottom: 0; width: clamp(310px, 26vw, 440px); }
+
+  .countdown-scene,
+  .hosts-scene,
+  .blessing-scene,
+  .names-scene {
+    --quiet-canvas-width: clamp(560px, 45vw, 820px);
+    --quiet-canvas-height: 118%;
+  }
+
+  .countdown-scene::before,
+  .hosts-scene::before,
+  .blessing-scene::before,
+  .names-scene::before {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    width: auto;
+    height: auto;
+    border: 0;
+    border-radius: 0;
+    transform: none;
+    opacity: 1;
+    content: "";
+  }
+
+  .countdown-scene::before { background: linear-gradient(rgba(255, 246, 226, .68), rgba(239, 216, 170, .68)), url("../assets/images/countdown-background.webp") center / cover no-repeat; }
+  .hosts-scene::before { background: linear-gradient(rgba(255, 247, 228, .72), rgba(235, 212, 165, .72)), url("../assets/images/hosts-background.webp") center / cover no-repeat; }
+  .blessing-scene::before { background: linear-gradient(rgba(237, 221, 187, .64), rgba(190, 159, 103, .64)), url("../assets/images/blessing-background.webp") center / cover no-repeat; }
+  .names-scene::before { background: linear-gradient(rgba(255, 248, 232, .7), rgba(238, 213, 169, .7)), url("../assets/images/names-background.webp") center / cover no-repeat; }
+
+  .countdown-background-asset,
+  .hosts-background-asset,
+  .blessing-background-asset,
+  .names-background-asset {
+    top: 50%;
+    right: auto;
+    bottom: auto;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-position: center;
+  }
+
+  .host-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1180px) {
+  .palace-scene { --palace-canvas-width: clamp(760px, 56vw, 1040px); }
+  .hall-scene { --hall-canvas-width: clamp(760px, 50vw, 960px); }
+  .surah-scene { --prayer-canvas-width: clamp(720px, 48vw, 920px); }
+  .hall-heading { margin-top: clamp(0px, 1.5svh, 16px); }
+}
+
+@media (max-width: 699px) and (max-height: 700px) {
+  .intro-content,
+  .welcome-copy { padding-bottom: clamp(210px, 34svh, 250px); }
+  .intro-screen .intro-palace-asset,
+  .welcome-scene .welcome-palace-asset { width: clamp(540px, 138vw, 720px); }
+  .hall-scene,
+  .surah-scene { min-height: 760px; }
+  .nikah-characters { bottom: 28px; height: clamp(315px, 52svh, 390px); }
+  .surah-copy { padding-bottom: 260px; }
+}
+
+/* Landscape laptops have much less vertical room than a phone or tall
+   desktop. Keep the welcome composition in a single intentional frame rather
+   than letting its content padding make the scene taller than the viewport. */
+@media (min-width: 700px) and (max-height: 800px) {
+  .intro-screen,
+  .welcome-scene { min-height: 100svh; }
+
+  .intro-content,
+  .welcome-copy {
+    padding-top: 18px;
+    padding-bottom: clamp(250px, 34svh, 310px);
+  }
+
+  .intro-content h1,
+  .welcome-copy h1 { font-size: clamp(42px, 4.8vw, 62px); }
+
+  /* Keep the palace below the names on short landscape viewports. The
+     foliage remains at the shared ground line, so the scene still reads as
+     one connected composition rather than an image moved independently. */
+  .intro-screen .intro-palace-asset,
+  .welcome-scene .welcome-palace-asset {
+    bottom: clamp(-210px, -15vw, -140px);
+  }
+
+  .palace-scene,
+  .hall-scene,
+  .surah-scene { min-height: max(760px, 100svh); }
+
+  /* Preserve a clear strip between the Hall copy and the couple on short
+     landscape displays, while keeping their shared feet/floor anchor. */
+  .nikah-characters { height: clamp(380px, 52svh, 410px); }
+
+  /* The prayer couple remains fully grounded but begins below the final dua
+     line instead of crossing the live Quranic content on shallow screens. */
+  .couple-prayer-asset { width: clamp(280px, 24vw, 320px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .palace-scene .palace-sky-asset,
+  .palace-scene .palace-distant-asset,
+  .palace-scene .palace-main-asset,
+  .palace-scene .garden-background-asset,
+  .palace-scene .palace-arch-asset,
+  .palace-scene .garden-foreground-asset,
+  .palace-scene .floating-petals-asset { --scroll-shift: 0px !important; }
+}
